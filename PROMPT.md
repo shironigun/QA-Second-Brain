@@ -33,7 +33,8 @@ Skip a check only if the project it targets does not exist yet (before S0 create
 - Never call a real LLM, real ADO org or real database in tests. Use the fakes and Testcontainers described in `specs/conventions.md`.
 - No secrets in tracked files. Config comes from environment variables or user-secrets.
 - Do not edit `PROMPT.md`, `specs/`, or a task's `Done when` to make a check pass. If a spec looks wrong, record it in `progress/BLOCKERS.md` and stop with `NEEDS HUMAN`.
-- Git: commit every small finished piece of work (a passing test, a port, a migration, a ticked task) with message `<task id>: <what changed>`, then `git push origin main`. Never force-push. If a push fails, log it in `progress/BLOCKERS.md` and continue.
+- Git: work on `feature/<sub-plan id>-<slug>`, cut from `dev` if it does not exist yet. Commit every small finished piece of work (a passing test, a port, a migration, a ticked task) with message `<task id>: <what changed>`, then push the feature branch. Never push to `dev` or `main`, never merge a PR, never force-push. If a push fails, log it in `progress/BLOCKERS.md` and continue.
+- When the sub-plan's Exit check passes, open a PR into `dev` with `gh pr create --base dev`, listing the demo and checks run. Then output the completion promise.
 - LLM: locally, agents run through the Claude CLI provider (`Llm:Provider=ClaudeCli`) until an API key exists.
 
 ## Finishing
