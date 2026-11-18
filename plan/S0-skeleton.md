@@ -15,7 +15,7 @@ Task format: `[ ]` todo · `[x]` done · `[!]` blocked · **[HUMAN]** the loop s
 - Do: create the five projects and two test projects from `specs/architecture.md`, with project references Api→Core/Agents/Infrastructure, Worker→same, Agents→Core, Infrastructure→Core. Turn on nullable, and warnings as errors for Core and Agents.
 - Done when: `dotnet build src/backend/QaSecondBrain.sln -c Release` and `dotnet test src/backend/QaSecondBrain.sln` pass (one placeholder test per test project).
 
-### S0-03 [ ] Postgres and EF baseline
+### S0-03 [x] Postgres and EF baseline
 - Depends: S0-02
 - Touches: `deploy/docker-compose.yml`, `src/backend/QaSecondBrain.Infrastructure/Data/**`, `src/backend/tests/QaSecondBrain.IntegrationTests/**`
 - Do: compose file with Postgres 16. `AppDbContext` with no tables yet, Npgsql, an empty initial migration. A Testcontainers fixture `PostgresFixture` that applies migrations.
