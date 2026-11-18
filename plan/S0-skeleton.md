@@ -6,11 +6,11 @@ Exit check: `docker compose -f deploy/docker-compose.yml up -d`, then all always
 
 Task format: `[ ]` todo · `[x]` done · `[!]` blocked · **[HUMAN]** the loop stops here.
 
-### S0-01 [ ] **[HUMAN]** Accounts and policy
-- Do: Create the Entra app registration (SPA + API scopes) and an ADO test project with a PAT (read work items, code, test plans; write work items only). Put each value in `progress/BLOCKERS.md` → Resolved as *where it is stored*, never the value.
+### S0-01 [x] Accounts moved
+- Entra app registration and the ADO test project are not needed until S1. They are now task S1-00.
 
 ### S0-02 [ ] Backend solution
-- Depends: S0-01
+- Depends: none
 - Touches: `src/backend/**`, `global.json`, `Directory.Build.props`
 - Do: create the five projects and two test projects from `specs/architecture.md`, with project references Api→Core/Agents/Infrastructure, Worker→same, Agents→Core, Infrastructure→Core. Turn on nullable, and warnings as errors for Core and Agents.
 - Done when: `dotnet build src/backend/QaSecondBrain.sln -c Release` and `dotnet test src/backend/QaSecondBrain.sln` pass (one placeholder test per test project).
@@ -34,7 +34,7 @@ Task format: `[ ]` todo · `[x]` done · `[!]` blocked · **[HUMAN]** the loop s
 - Done when: unit test `Worker_stops_on_cancellation` passes.
 
 ### S0-06 [ ] Web shell
-- Depends: S0-01
+- Depends: none
 - Touches: `src/web/**`
 - Do: Vite + React + TS strict + MUI v7 + React Query + React Router + Vitest + ESLint. App bar, left nav (Inbox, Tickets, Releases, Knowledge, Dashboards, Settings) with placeholder pages, light/dark theme from tokens. Shared API client with `AbortSignal` support.
 - Done when: `npm --prefix src/web run build`, `run test -- --run` (renders nav test), `run lint` pass.

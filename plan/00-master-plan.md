@@ -30,8 +30,8 @@ S5 can run in parallel with S2–S4 (separate files). All other sub-plans run in
 
 | Where | Decision |
 |---|---|
-| S0 | Anthropic key and provider terms; Entra app registration; ADO test org and PAT; commit policy |
-| S1 | Approve the artifact schemas before the inbox is built on them |
+| S0 | None. Local LLM runs use the Claude CLI until an API key exists |
+| S1 | Entra app registration; ADO test project and PAT; approve the artifact schemas before the inbox is built on them |
 | S2 | Pick the closed defects for the replay set; accept the first scorecard |
 | S3 | Confirm test-plan IDs and the cap on new test cases |
 | S6 | Confirm the release signal per team; write the first gate policy |

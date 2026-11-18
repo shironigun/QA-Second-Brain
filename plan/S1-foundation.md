@@ -4,6 +4,9 @@ Goal: the safe skeleton of the whole loop, end to end with one agent. A QA signs
 
 Exit check: integration test `S1_end_to_end_analyse_approve_write` passes against FakeAdoServer + FakeLlmClient, plus all always-on checks. Demo the same flow by hand against the ADO test project.
 
+### S1-00 [ ] **[HUMAN]** Entra and ADO test project
+- Do: create the Entra app registration (SPA + API scopes) and an ADO test project with a PAT (read work items, code, test plans; write work items only). Record in `progress/BLOCKERS.md` → Resolved *where* each value is stored, never the value. Needed by S1-04 and S1-07.
+
 ### S1-01 [ ] **[HUMAN]** Approve artifact envelope
 - Read: `specs/data-and-artifacts.md`
 - Do: confirm the envelope and the CodeFinding/TriageBrief shapes, or edit the spec. The loop builds on them from here.
