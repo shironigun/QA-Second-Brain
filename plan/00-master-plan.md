@@ -6,7 +6,7 @@ Goal: a multi-team web app where agents analyse defects and stories on Azure Dev
 
 | ID | Sub-plan | Delivers (demo at exit) | Depends | Status |
 |---|---|---|---|---|
-| S0 | Repo and skeleton | Empty app runs: API health, web shell, Postgres via compose, CI green | none | todo |
+| S0 | Repo and skeleton | Empty app runs: API health, web shell, Postgres via compose, CI green | none | done |
 | S1 | Foundation | A QA signs in, configures a team, clicks "Analyse now" on a defect, sees a Code-agent draft in the inbox, approves it, and a comment reaches a fake ADO | S0 | todo |
 | S2 | Defect triage | Service hook on defect create produces a full Triage Brief (classifier + 4 specialists + lead), posted in house format after approval; replay on closed defects produces a scorecard | S1 | todo |
 | S3 | Defect verification | On Resolved: link and prod-branch checks, code-review verdict, retest list, test-plan check with 4 outcomes, execution result by QA, QA UPDATE comment, reopen handling | S2 | todo |
