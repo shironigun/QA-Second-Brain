@@ -31,10 +31,14 @@ Every artifact payload has this envelope:
 
 ```json
 {
+  "artifactId": "…",
   "artifactType": "TriageBrief",
   "schemaVersion": 1,
+  "createdAt": "2026-01-01T00:00:00Z",
+  "runId": "…",
+  "producedBy": { "agent": "lead", "skillVersion": "1.4.0", "model": "…" },
   "teamId": "…",
-  "workItemId": 187270,
+  "workItemId": 1001,
   "sourceRevision": 14,
   "codeCommit": "a1b2c3d",
   "environment": "prod",
@@ -48,9 +52,11 @@ Every artifact payload has this envelope:
 }
 ```
 
+`runId` points to the `agent_runs` row that produced the artifact, so the inbox can open the Agent Run View for it ("Watch run", replay). `producedBy` records the agent, the pinned skill version from `skills.lock.json` and the model.
+
 | Type | `body` holds | Sub-plan |
 |---|---|---|
-| CodeFinding | rootCause, files[] (path, lines, why) | S1 (single agent) |
+| CodeFinding | summary (one line), rootCause, files[] (path, lines, why), confidence (0–1, overall) | S1 (single agent) |
 | TriageBrief | screen (duplicate/config/data/needsInfo/proceed), rootCause, files, similarDefects, impact, specGapOrCodeBug, coverage (existing cases + caught?/gap), owner, cc, commentDraft | S2 |
 | VerificationBrief | linkCheck, inProd, codeReviewVerdict (Fixed/Partial/NotFixed/NotInProd/Inconclusive), retestList, testCasePlan (link/edit/draft/flagWrong), executionVerdict (Unverified until QA), qaUpdateDraft | S3 |
 | TestIntentBrief | gaps[] (question, about which criterion), perCriterion (covered/close/notCovered/willBreak + cases), regressionList, risk | S4 |
