@@ -102,13 +102,20 @@ Exit check: integration test `S1_end_to_end_analyse_approve_write` passes agains
 - Depends: S1-15
 - Read: ADO_Tester `SseWriter.cs`, `EventBus.cs`, `useEventStream.ts`
 - Touches: Api/Streaming, Core/Events, web `hooks/useEventStream.ts`, `components/AgentProgress.tsx`
-- Do: SSE stream per run, scoped by team.
-- Done when: `Sse_stream_is_team_scoped`; Vitest `AgentProgress renders steps from events`.
+- Do: SSE stream per run, scoped by team, using the event contract in `specs/ui-ux.md` §5.6 (`seq`, `Last-Event-ID` resume). Events are stored so a run can be replayed.
+- Done when: `Sse_stream_is_team_scoped`, `Sse_resumes_from_last_event_id`; Vitest `AgentProgress renders steps from events`.
+
+### S1-16b [ ] Agent Run View
+- Depends: S1-16
+- Read: `specs/ui-ux.md` §5
+- Touches: web `features/runs/**`, `pages/runs/**`, `src/web/package.json` (`@xyflow/react`, `elkjs`, `framer-motion`), `tests/fixtures/events/**`
+- Do: the live flow graph (node types and states, animated edges, auto-layout, follow-live camera, minimap), inspector tabs, timeline with replay scrubber, run header with live totals and activity ticker, reduced-motion fallback, keyboard navigation between nodes. Driven only by events; a recorded event stream in `tests/fixtures/events/` powers tests and a demo route.
+- Done when: Vitest `run graph adds nodes from events`, `node shows running then done states`, `replay scrubber moves graph to playhead`, `reduced motion disables glow`, `graph is keyboard navigable`, plus axe passes on the page.
 
 ### S1-17 [ ] Review inbox
 - Depends: S1-15
 - Touches: Api/Reviews, web `pages/inbox/**`
-- Do: list in-review artifacts with age; detail view shows each claim with its label chip and evidence links; actions Approve, Edit then approve, Reject with a structured reason (wrong root cause, wrong module, missing context, hallucinated file, style), Re-run with note. Edits stored as a diff. Time on review recorded.
+- Do: list in-review artifacts with age; detail view shows each claim with its label chip and evidence links; actions Approve, Edit then approve, Reject with a structured reason (wrong root cause, wrong module, missing context, hallucinated file, style), Re-run with note. Edits stored as a diff. Time on review recorded. Layout and shortcuts per `specs/ui-ux.md` §4 and §6 (split view, `a`/`e`/`r`/`n`/`p`, optimistic actions with undo, "Watch run" link to the Agent Run View).
 - Done when: API `Reject_requires_reason`, `Edit_is_stored_as_diff`; Vitest `inbox shows label chips`, `reject dialog requires reason`.
 
 ### S1-18 [ ] Write plan and write service

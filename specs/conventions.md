@@ -20,6 +20,7 @@
 - API functions are plain typed functions on one shared client, each taking an optional `AbortSignal`.
 - Every data view has loading, error and empty states.
 - Vitest + Testing Library. MSW for API mocks.
+- Every screen follows `specs/ui-ux.md` (visual system, interaction rules, accessibility). Agent runs are shown with the Agent Run View described there.
 
 ## Tests
 - Unit: xUnit + FluentAssertions; Vitest.
