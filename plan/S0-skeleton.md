@@ -45,7 +45,7 @@ Task format: `[ ]` todo · `[x]` done · `[!]` blocked · **[HUMAN]** the loop s
 - Do: `FakeLlmClient` (returns canned JSON by agent name from `tests/fixtures/llm/`), `FakeAdoServer` on WireMock with golden fixtures (one defect, one story, one PR with diff, one test plan) adapted from ADO_Tester's `golden/ado_golden.json`.
 - Done when: unit tests `FakeLlm_returns_fixture` and `FakeAdo_serves_work_item` pass.
 
-### S0-08 [ ] CI pipeline
+### S0-08 [x] CI pipeline
 - Depends: S0-04, S0-06
 - Touches: `.github/workflows/ci.yml` or `azure-pipelines.yml` (pick the one matching where the repo will live; record the choice in the log)
 - Do: run the always-on checks on every push.
