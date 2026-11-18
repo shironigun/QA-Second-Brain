@@ -21,7 +21,7 @@ Task format: `[ ]` todo · `[x]` done · `[!]` blocked · **[HUMAN]** the loop s
 - Do: compose file with Postgres 16. `AppDbContext` with no tables yet, Npgsql, an empty initial migration. A Testcontainers fixture `PostgresFixture` that applies migrations.
 - Done when: integration test `Db_migrates_on_empty_database` passes.
 
-### S0-04 [ ] API host and health
+### S0-04 [x] API host and health
 - Depends: S0-03
 - Touches: `src/backend/QaSecondBrain.Api/**`, tests
 - Do: minimal host, ProblemDetails, structured logging, `GET /health` reporting DB connectivity, CORS for the web dev origin from config.

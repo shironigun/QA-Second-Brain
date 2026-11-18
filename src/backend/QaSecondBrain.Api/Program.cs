@@ -1,34 +1,43 @@
+using Microsoft.EntityFrameworkCore;
+using QaSecondBrain.Infrastructure.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Logging.ClearProviders();
+builder.Logging.AddJsonConsole();
+
+builder.Services.AddProblemDetails();
+builder.Services.AddDbContext<AppDbContext>(o =>
+    o.UseNpgsql(builder.Configuration.GetConnectionString("Db")));
+
+const string WebCors = "web";
+var webOrigins = builder.Configuration.GetSection("Cors:WebOrigins").Get<string[]>() ?? [];
+builder.Services.AddCors(o => o.AddPolicy(WebCors, p =>
+    p.WithOrigins(webOrigins).AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.UseExceptionHandler();
+app.UseStatusCodePages();
+app.UseCors(WebCors);
 
-app.UseHttpsRedirection();
-
-var summaries = new[]
+app.MapGet("/health", async (AppDbContext db, ILogger<Program> logger, CancellationToken ct) =>
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+    bool dbOk;
+    try
+    {
+        dbOk = await db.Database.CanConnectAsync(ct);
+    }
+    catch (Exception ex)
+    {
+        logger.LogWarning(ex, "Health check could not reach the database");
+        dbOk = false;
+    }
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
+    var body = new { status = dbOk ? "ok" : "degraded", db = dbOk ? "ok" : "unreachable" };
+    return dbOk ? Results.Ok(body) : Results.Json(body, statusCode: StatusCodes.Status503ServiceUnavailable);
 });
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+public partial class Program;
