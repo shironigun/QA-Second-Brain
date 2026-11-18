@@ -1,0 +1,18 @@
+{
+  "id": 1002,
+  "rev": 5,
+  "fields": {
+    "System.WorkItemType": "User Story",
+    "System.Title": "As a QA user I can save a record and see a confirmation",
+    "System.State": "Ready",
+    "System.AreaPath": "Test Project\\Test Area",
+    "System.IterationPath": "Test Project\\Sprint 1",
+    "System.Description": "<p>Users need to save records safely.</p>",
+    "Microsoft.VSTS.Common.AcceptanceCriteria": "<ul><li>Clicking SAVE stores the record.</li><li>A confirmation message is shown.</li><li>On failure no data is lost and an error is shown.</li></ul>"
+  },
+  "relations": [
+    { "rel": "System.LinkTypes.Hierarchy-Forward", "url": "https://dev.azure.com/TestOrg/Test%20Project/_apis/wit/workItems/1001", "attributes": { "name": "Child" } },
+    { "rel": "ArtifactLink", "url": "vstfs:///Git/PullRequestId/test-project-id%2Ftest-repo-id%2F501", "attributes": { "name": "Pull Request" } }
+  ],
+  "url": "https://dev.azure.com/TestOrg/Test%20Project/_apis/wit/workItems/1002"
+}

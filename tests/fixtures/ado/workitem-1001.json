@@ -1,0 +1,19 @@
+{
+  "id": 1001,
+  "rev": 3,
+  "fields": {
+    "System.WorkItemType": "Bug",
+    "System.Title": "Saving a record shows error 500 and data is lost",
+    "System.State": "Active",
+    "System.AreaPath": "Test Project\\Test Area",
+    "System.IterationPath": "Test Project\\Sprint 1",
+    "System.AssignedTo": { "displayName": "Sam Developer", "uniqueName": "sam.developer@example.test" },
+    "System.CreatedBy": { "displayName": "Alex Tester", "uniqueName": "alex.tester@example.test" },
+    "Microsoft.VSTS.Common.Severity": "2 - High",
+    "Microsoft.VSTS.TCM.ReproSteps": "<ol><li>Log in as a QA user</li><li>Open any record and click SAVE</li></ol><p>Expected: the record is saved with no error.</p><p>Actual: error 500 and the change is lost.</p>"
+  },
+  "relations": [
+    { "rel": "System.LinkTypes.Hierarchy-Reverse", "url": "https://dev.azure.com/TestOrg/Test%20Project/_apis/wit/workItems/1002", "attributes": { "name": "Parent" } }
+  ],
+  "url": "https://dev.azure.com/TestOrg/Test%20Project/_apis/wit/workItems/1001"
+}

@@ -39,9 +39,9 @@ Task format: `[ ]` todo · `[x]` done · `[!]` blocked · **[HUMAN]** the loop s
 - Do: Vite + React + TS strict + MUI v7 + React Query + React Router + Vitest + ESLint. App bar, left nav (Inbox, Tickets, Releases, Knowledge, Dashboards, Settings) with placeholder pages, light/dark theme from tokens. Shared API client with `AbortSignal` support.
 - Done when: `npm --prefix src/web run build`, `run test -- --run` (renders nav test), `run lint` pass.
 
-### S0-07 [ ] Test fakes
+### S0-07 [x] Test fakes
 - Depends: S0-02
-- Touches: `src/backend/tests/**/Fakes/**`, `tests/fixtures/**`
+- Touches: `src/backend/tests/**/Fakes/**`, `src/backend/tests/QaSecondBrain.TestKit/**`, `tests/fixtures/**`
 - Do: `FakeLlmClient` (returns canned JSON by agent name from `tests/fixtures/llm/`), `FakeAdoServer` on WireMock with golden fixtures (one defect, one story, one PR with diff, one test plan) adapted from ADO_Tester's `golden/ado_golden.json`.
 - Done when: unit tests `FakeLlm_returns_fixture` and `FakeAdo_serves_work_item` pass.
 

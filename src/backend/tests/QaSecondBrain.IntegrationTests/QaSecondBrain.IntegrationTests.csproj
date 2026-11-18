@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\QaSecondBrain.Api\QaSecondBrain.Api.csproj" />
     <ProjectReference Include="..\..\QaSecondBrain.Infrastructure\QaSecondBrain.Infrastructure.csproj" />
+    <ProjectReference Include="..\QaSecondBrain.TestKit\QaSecondBrain.TestKit.csproj" />
   </ItemGroup>
 
 </Project>

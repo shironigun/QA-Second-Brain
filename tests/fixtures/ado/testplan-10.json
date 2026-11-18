@@ -1,0 +1,15 @@
+{
+  "id": 10,
+  "name": "Sprint 1 Test Plan",
+  "areaPath": "Test Project\\Test Area",
+  "rootSuite": { "id": 20, "name": "Sprint 1" },
+  "suites": [
+    {
+      "id": 20,
+      "name": "Sprint 1",
+      "testCases": [
+        { "workItem": { "id": 30, "name": "Verify that a saved record shows a confirmation" } }
+      ]
+    }
+  ]
+}

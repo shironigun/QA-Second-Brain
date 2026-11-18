@@ -1,0 +1,12 @@
+{
+  "pullRequestId": 501,
+  "status": "completed",
+  "title": "Guard null user id before save",
+  "sourceRefName": "refs/heads/fix/1001-null-guard",
+  "targetRefName": "refs/heads/main",
+  "createdBy": { "displayName": "Sam Developer", "uniqueName": "sam.developer@example.test" },
+  "repository": { "id": "test-repo-id", "name": "test-repo" },
+  "lastMergeSourceCommit": { "commitId": "1111111111111111111111111111111111111111" },
+  "lastMergeTargetCommit": { "commitId": "0000000000000000000000000000000000000000" },
+  "url": "https://dev.azure.com/TestOrg/Test%20Project/_apis/git/repositories/test-repo-id/pullRequests/501"
+}
