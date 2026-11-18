@@ -1,0 +1,9 @@
+{
+  "changeEntries": [
+    {
+      "changeType": "edit",
+      "item": { "path": "/src/RecordService.cs" },
+      "diff": "@@ -10,6 +10,9 @@ public async Task SaveAsync(Record record, CancellationToken ct)\n {\n+    if (record.UserId is null)\n+        record.UserId = await _users.GetCurrentIdAsync(ct);\n+\n     await _repository.SaveAsync(record, ct);\n }"
+    }
+  ]
+}

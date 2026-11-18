@@ -1,0 +1,6 @@
+{
+  "verdict": "likely_fixed",
+  "confidence": 0.8,
+  "summary": "The change guards a null user id before save, which matches the reported error.",
+  "evidence": [ { "label": "code", "ref": "/src/RecordService.cs" } ]
+}

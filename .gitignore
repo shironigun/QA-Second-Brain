@@ -10,3 +10,7 @@ appsettings.*.local.json
 TestResults/
 .claude/ralph-loop.local.md
 .claude/settings.local.json
+
+# Local Claude tooling state
+.claude/ralph-loop.local.md
+.claude/launch.json
