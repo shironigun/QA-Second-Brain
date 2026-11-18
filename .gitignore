@@ -1,0 +1,12 @@
+bin/
+obj/
+node_modules/
+dist/
+*.user
+.vs/
+.env
+.env.*
+appsettings.*.local.json
+TestResults/
+.claude/ralph-loop.local.md
+.claude/settings.local.json
