@@ -28,8 +28,13 @@
 - Never call a real LLM, ADO org or database from tests. Tests never start the real `claude` CLI; the CLI client is tested with a stub executable.
 
 ## Git
+- Branches: `main` (released, protected), `dev` (integration), one `feature/<sub-plan id>-<slug>` per sub-plan cut from `dev` (e.g. `feature/S1-foundation`). Small fixes outside a sub-plan use `fix/<slug>` from `dev`.
+- `main` is protected: no direct pushes, no force-push, no deletion; changes reach it only through a pull request from `dev`.
 - Commit after every finished task, and after any smaller self-contained step inside a task (a passing test, a port, a migration). Message: `<task id>: <what changed>`.
-- Push to `origin main` after each commit. If the push fails, record it in `progress/BLOCKERS.md` and keep working; never force-push.
+- Push the feature branch after each commit. If the push fails, record it in `progress/BLOCKERS.md` and keep working; never force-push.
+- When a sub-plan's Exit check passes, open a PR from the feature branch into `dev` (`gh pr create --base dev`), with the sub-plan's demo and checks in the description. A human merges it.
+- After the merge to `dev`, open a PR from `dev` into `main`. A human merges it.
+- The loop never merges PRs and never pushes to `dev` or `main` directly.
 - Never commit secrets, `.env` files, `bin/`, `obj/`, `node_modules/` or `dist/`.
 
 ## Naming

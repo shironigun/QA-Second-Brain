@@ -19,7 +19,7 @@ The plan is executed with the Ralph loop plugin, one sub-plan at a time.
 
 ## Before the first run
 
-1. Repo: https://github.com/shironigun/QA-Second-Brain. The loop commits every small piece of work and pushes to `main`.
+1. Repo: https://github.com/shironigun/QA-Second-Brain. Branches: `main` (protected, PR only), `dev`, and one `feature/<sub-plan>` branch per sub-plan. The loop commits and pushes every small piece of work to the feature branch and opens a PR into `dev` when the sub-plan is done. You merge it, then open or merge the `dev` → `main` PR.
 2. LLM: local runs use the Claude CLI (`Llm:Provider=ClaudeCli`) until an Anthropic API key is available. `claude` must be on PATH and signed in.
 3. Windows: the plugin's stop hook calls plain `bash`, which can resolve to WSL. If the loop does not continue after the first iteration, point the hook at Git Bash as the plugin README describes.
 4. Settle the `[HUMAN]` task in `S0` (Entra app registration, ADO test org).
