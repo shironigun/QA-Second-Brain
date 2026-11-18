@@ -9,7 +9,7 @@ Task format: `[ ]` todo · `[x]` done · `[!]` blocked · **[HUMAN]** the loop s
 ### S0-01 [x] Accounts moved
 - Entra app registration and the ADO test project are not needed until S1. They are now task S1-00.
 
-### S0-02 [ ] Backend solution
+### S0-02 [x] Backend solution
 - Depends: none
 - Touches: `src/backend/**`, `global.json`, `Directory.Build.props`
 - Do: create the five projects and two test projects from `specs/architecture.md`, with project references Api→Core/Agents/Infrastructure, Worker→same, Agents→Core, Infrastructure→Core. Turn on nullable, and warnings as errors for Core and Agents.
