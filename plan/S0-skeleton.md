@@ -27,7 +27,7 @@ Task format: `[ ]` todo · `[x]` done · `[!]` blocked · **[HUMAN]** the loop s
 - Do: minimal host, ProblemDetails, structured logging, `GET /health` reporting DB connectivity, CORS for the web dev origin from config.
 - Done when: integration test `Health_returns_ok_with_db` passes.
 
-### S0-05 [ ] Worker host
+### S0-05 [x] Worker host
 - Depends: S0-03
 - Touches: `src/backend/QaSecondBrain.Worker/**`, tests
 - Do: generic host with one no-op `BackgroundService` that logs a heartbeat and stops cleanly on cancellation.
