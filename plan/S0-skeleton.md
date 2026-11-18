@@ -33,7 +33,7 @@ Task format: `[ ]` todo · `[x]` done · `[!]` blocked · **[HUMAN]** the loop s
 - Do: generic host with one no-op `BackgroundService` that logs a heartbeat and stops cleanly on cancellation.
 - Done when: unit test `Worker_stops_on_cancellation` passes.
 
-### S0-06 [ ] Web shell
+### S0-06 [x] Web shell
 - Depends: none
 - Touches: `src/web/**`
 - Do: Vite + React + TS strict + MUI v7 + React Query + React Router + Vitest + ESLint. App bar, left nav (Inbox, Tickets, Releases, Knowledge, Dashboards, Settings) with placeholder pages, light/dark theme from tokens. Shared API client with `AbortSignal` support.
